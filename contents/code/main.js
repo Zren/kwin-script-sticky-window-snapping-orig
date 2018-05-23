@@ -29,7 +29,7 @@ var config = {
 	ignoreShaded: true,
 	liveUpdate: true,
 	threshold: 5,
-	opacityOfSnapped: 0.75
+	opacityOfSnapped: 0.95,
 };
 
 /****************************************************************************/
