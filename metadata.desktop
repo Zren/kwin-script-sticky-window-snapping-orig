@@ -1,16 +1,20 @@
 [Desktop Entry]
-Name=Sticky Window Snapping
+Name=Sticky Window Snapping (Zren)
 Comment=Let snapped window edges stick together when one window is resized.
 Icon=preferences-system-windows-script-test
 
 X-Plasma-API=javascript
 X-Plasma-MainScript=code/main.js
 
-X-KDE-PluginInfo-Author=Toni Dietze
-X-KDE-PluginInfo-Email=sticky-window-snapping@derflupp.e4ward.com
-X-KDE-PluginInfo-Name=sticky-window-snapping
-X-KDE-PluginInfo-Website=https://github.com/Flupp/sticky-window-snapping
-X-KDE-PluginInfo-Version=0.2.1
+X-KDE-PluginInfo-Author=Chris Holland
+X-KDE-PluginInfo-Email=zrenfire@gmail.com
+X-KDE-PluginInfo-Name=sticky-window-snapping-zren
+X-KDE-PluginInfo-Website=https://github.com/Zren/kwin-script-sticky-window-snapping
+X-KDE-PluginInfo-Version=0.2.1-zren
+
+X-KDE-PluginInfo-Orig-Author=Toni Dietze
+X-KDE-PluginInfo-Orig-Email=sticky-window-snapping@derflupp.e4ward.com
+X-KDE-PluginInfo-Orig-Website=https://github.com/Flupp/sticky-window-snapping
 
 X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=GPL
