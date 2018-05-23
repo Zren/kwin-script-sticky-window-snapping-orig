@@ -101,6 +101,9 @@ function clientStartUserMovedResized(client) {
 		var r2 = g.width + l2;
 		var t2 = g.y;
 		var b2 = g.height + t2;
+		var ca2 = workspace.clientArea(workspace.MaximizeArea, c);
+		var useAllWidth = within(client.geometry.width + g.width, ca2.width, config.threshold);
+		var useAllHeight = within(client.geometry.height + g.height, ca2.height, config.threshold);
 
 		if (c == client) continue;
 		if (c.specialWindow) continue;
@@ -108,18 +111,20 @@ function clientStartUserMovedResized(client) {
 		if (c.desktop !== workspace.currentDesktop) continue;
 		if (c.screen !== client.screen) continue;
 		if (config.ignoreShaded && c.shade) continue;
-		if (config.ignoreMaximized && shallowEquals(g, workspace.clientArea(workspace.MaximizeArea, c))) continue;
+		if (config.ignoreMaximized && shallowEquals(g, ca2)) continue;
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
+
+		if (!useAllWidth && !useAllHeight) continue;
 
 		var snap = {
 			lr: within(l1, r2, config.threshold),
-			ll: within(l1, l2, config.threshold),
+			ll: within(l1, l2, config.threshold) && l2 != ca2.x,
 			rl: within(r1, l2, config.threshold),
-			rr: within(r1, r2, config.threshold),
+			rr: within(r1, r2, config.threshold) && r2 != ca2.x + ca2.width,
 			tb: within(t1, b2, config.threshold),
-			tt: within(t1, t2, config.threshold),
+			tt: within(t1, t2, config.threshold) && t2 != ca2.y,
 			bt: within(b1, t2, config.threshold),
-			bb: within(b1, b2, config.threshold),
+			bb: within(b1, b2, config.threshold) && b2 != ca2.y + ca2.height,
 			client: c,
 			originalGeometry: c.geometry
 		};
